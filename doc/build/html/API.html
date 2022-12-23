@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>API &mdash; cellDancer  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="celldancer.adata_to_df_with_embed" href="celldancer.adata_to_df_with_embed.html" />
+    <link rel="prev" title="cellDancer - Estimating Cell-dependent RNA Velocity" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> cellDancer
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">cellDancer</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="celldancer.adata_to_df_with_embed.html">celldancer.adata_to_df_with_embed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celldancer.to_dynamo.html">celldancer.to_dynamo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celldancer.export_velocity_to_dynamo.html">celldancer.export_velocity_to_dynamo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celldancer.velocity.html">celldancer.velocity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celldancer.compute_cell_velocity.html">celldancer.compute_cell_velocity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celldancer.pseudo_time.html">celldancer.pseudo_time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celldancer.embedding_kinetic_para.html">celldancer.embedding_kinetic_para</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celldancer.cdplt.scatter_gene.html">celldancer.cdplt.scatter_gene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celldancer.cdplt.scatter_cell.html">celldancer.cdplt.scatter_cell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celldancer.cdplt.plot_kinetic_para.html">celldancer.cdplt.plot_kinetic_para</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celldancer.cdplt.PTO_Graph.html">celldancer.cdplt.PTO_Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celldancer.simulation.simulate.html">celldancer.simulation.simulate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_preprocessing.html">Data Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_gastrulation.html">Delineating the transcriptional boost on single-cell resolution in gastrulation erythroid maturation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_neuro.html">Inferring RNA velocities on each branch for branching genes in the mouse hippocampus development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_pancreas.html">Deciphering cell identity using the cell-specific reaction rates in pancreatic endocrinogenesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_hgforebrian.html">Decoding the human embryo glutamatergic neurogenesis</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Application of dynamo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_pancreas_dynamo.html">Deciphering gene regulation through vector fields analysis in pancreatic endocrinogenesis</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">cellDancer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/API.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="api">
+<h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<p>Import pandas and cellDancer modules as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">celldancer</span> <span class="k">as</span> <span class="nn">cd</span>
+<span class="kn">import</span> <span class="nn">celldancer.cdplt</span> <span class="k">as</span> <span class="nn">cdplt</span>
+<span class="kn">import</span> <span class="nn">celldancer.utilities</span> <span class="k">as</span> <span class="nn">cdutil</span>
+<span class="kn">import</span> <span class="nn">celldancer.simulation</span> <span class="k">as</span> <span class="nn">cdsim</span>
+</pre></div>
+</div>
+<p>After the <a class="reference external" href="data_preprocessing.html">preprocessing</a> (optional, <code class="docutils literal notranslate"><span class="pre">cdutil.adata_to_df_with_embed</span></code>) and the loading of the data (<code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code>), the RNA velocity could be estimated by <code class="docutils literal notranslate"><span class="pre">cd.velocity</span></code>. The projection of RNA velocity to vector fields in the embedding space could be calculated by <code class="docutils literal notranslate"><span class="pre">cd.compute_cell_velocity</span></code> and visualized by <code class="docutils literal notranslate"><span class="pre">cdplt.scatter_cell</span></code>. The pseudotime could be calculated by <code class="docutils literal notranslate"><span class="pre">cd.pseudo_time</span></code> and visualized by <code class="docutils literal notranslate"><span class="pre">cdplt.scatter_cell</span></code> or <code class="docutils literal notranslate"><span class="pre">cdplt.scatter_gene</span></code>, the UMAP based on reaction rates could be calculated by <code class="docutils literal notranslate"><span class="pre">cd.embedding_kinetic_para</span></code> and visualized by <code class="docutils literal notranslate"><span class="pre">cdplt.plot_kinetic_para</span></code>. Genes with different kinetics could be simulated by <code class="docutils literal notranslate"><span class="pre">cdsim.simulate</span></code>. cellDancer results could be integrated with dynamo for downstream analysis by <code class="docutils literal notranslate"><span class="pre">cdutil.to_dynamo</span></code> and <code class="docutils literal notranslate"><span class="pre">cdutil.export_velocity_to_dynamo</span></code>.</p>
+<div class="section" id="toolkit-functions">
+<h2>Toolkit functions<a class="headerlink" href="#toolkit-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="preprocessing-and-apis-to-dynamo-cdutil">
+<h3>Preprocessing and APIs to dynamo (cdutil)<a class="headerlink" href="#preprocessing-and-apis-to-dynamo-cdutil" title="Permalink to this headline">¶</a></h3>
+<p class="rubric">Functions</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="celldancer.adata_to_df_with_embed.html#celldancer.adata_to_df_with_embed" title="celldancer.adata_to_df_with_embed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">adata_to_df_with_embed</span></code></a>(adata[, us_para, ...])</p></td>
+<td><p>Convert adata to pandas.DataFrame format and save it as csv file with embedding info.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="celldancer.to_dynamo.html#celldancer.to_dynamo" title="celldancer.to_dynamo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dynamo</span></code></a>(cellDancer_df)</p></td>
+<td><p>Convert the output dataframe of cellDancer to the input of dynamo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="celldancer.export_velocity_to_dynamo.html#celldancer.export_velocity_to_dynamo" title="celldancer.export_velocity_to_dynamo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_velocity_to_dynamo</span></code></a>(cellDancer_df, adata)</p></td>
+<td><p>Replace the velocities in adata of dynamo (“adata” in parameters) with the cellDancer predicted velocities (“cellDancer_df” in parameters).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="velocity-estimation-and-analysis-cd">
+<h3>Velocity estimation and analysis (cd)<a class="headerlink" href="#velocity-estimation-and-analysis-cd" title="Permalink to this headline">¶</a></h3>
+<p class="rubric">Functions</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="celldancer.velocity.html#celldancer.velocity" title="celldancer.velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">velocity</span></code></a>(cell_type_u_s[, gene_list, ...])</p></td>
+<td><p>Velocity estimation for each cell.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="celldancer.compute_cell_velocity.html#celldancer.compute_cell_velocity" title="celldancer.compute_cell_velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_cell_velocity</span></code></a>(cellDancer_df[, ...])</p></td>
+<td><p>Project the RNA velocity onto the embedding space.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="celldancer.pseudo_time.html#celldancer.pseudo_time" title="celldancer.pseudo_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pseudo_time</span></code></a>(cellDancer_df, grid, dt[, ...])</p></td>
+<td><p>Compute the gene-shared pseudotime based on the projection of the RNA velocity on the embedding space. :param cellDancer_df: Dataframe of velocity estimation results. Columns=['cellIndex', 'gene_name', unsplice', 'splice',                       'unsplice_predict', 'splice_predict',                       'alpha', 'beta', 'gamma', 'loss', 'cellID, 'clusters',                       'embedding1', 'embedding2', 'velocity1', 'velocity2'] :type cellDancer_df: <cite>pandas.DataFrame</cite> :param grid: (n_x, n_y), where n_x, n_y are integers. The embedding space (2d, [xmin, xmax] x [ymin, ymax]) is divided into              n_x * n_y grids. The cells in the same grid share the same velocity              (mean), however, they may not share the pseudotime. If it's set to <cite>None</cite>, then a recommended value for n_x and n_y is              the square root of the number of selected cells (rounded to the nearest              tenth.) :type grid: <cite>tuple</cite> :param dt: Time step used to advance a cell on the embedding for generation of            cell diffusion trajectories. Parameter <cite>dt</cite> should be set together            with <cite>t_total</cite>. Excessively small values of <cite>dt</cite> demand large <cite>t_total</cite>,            and drastically increase computing time; Excessively large values of            <cite>dt</cite> lead to low-resolution and unrealistic pseudotime estimation. :type dt: <cite>float</cite> :param t_total: Total number of time steps used for generation of cell diffusion                 trajectories. The diffusion is stopped by any of the criteria:                 - reach <cite>t_total</cite>;                 - the magnitude of the velocity is less than a cutoff <cite>eps</cite>;                 - the cell goes to where no cell resides;                 - the cell is out of the diffusion box (the <cite>grid</cite>) :type t_total: optional, <cite>float</cite> (default: 1000) :param n_repeats: Number of repeated diffusion of each cell used for generation of cell                   diffusion trajectories. :type n_repeats: optional, <cite>int</cite> (default: 10) :param psrng_seeds_diffusion: Pseudo random number generator seeds for all the replicas in the generation                               of cell diffusion trajectories. Its length = <cite>n_repeats</cite>. Set this for                               reproducibility. :type psrng_seeds_diffusion: optional, <cite>list-like</cite> (default: <cite>None</cite>) :param speed_up: The sampling grid used in <em>compute_cell_velocity.compute</em>. This grid is used for interpolating pseudotime for all cells. :type speed_up: optional, <cite>tuple</cite> (default: (60,60)) :param n_jobs: Number of threads or processes used for cell diffusion. It follows the                scikit-learn convention. -1 means all possible threads. :type n_jobs: optional, <cite>int</cite> (default: -1) :param n_paths: Number of long paths to extract for cell pseudotime estimation. Note this parameter is very sensitive. For the best outcome, please set the                 number based on biological knowledge about the cell embedding. :type n_paths: optional, <cite>int</cite> (default: 5) :param plot_long_trajs: Whether to show the long trajectories whose traverse lengths are                         local maximums. :type plot_long_trajs: optional, <cite>bool`(default: False) :param save: Whether to save the pseudotime-included `cellDancer_df</cite> as .csv file. :type save: <cite>bool</cite> (default: <cite>False</cite>) :param output_path: Save file path. By default, the .csv file is saved in the current directory. :type output_path: optional, <cite>str</cite> (default: <cite>None</cite>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="celldancer.embedding_kinetic_para.html#celldancer.embedding_kinetic_para" title="celldancer.embedding_kinetic_para"><code class="xref py py-obj docutils literal notranslate"><span class="pre">embedding_kinetic_para</span></code></a>(cellDancer_df, ...[, ...])</p></td>
+<td><p>Calculate the UMAP based on the kinetic parameter(s).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="plotting-cdplt">
+<h3>Plotting (cdplt)<a class="headerlink" href="#plotting-cdplt" title="Permalink to this headline">¶</a></h3>
+<p class="rubric">Functions</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="celldancer.cdplt.scatter_gene.html#celldancer.cdplt.scatter_gene" title="celldancer.cdplt.scatter_gene"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scatter_gene</span></code></a>([ax, x, y, cellDancer_df, ...])</p></td>
+<td><p>Plot the velocity (splice-unsplice) of a gene, or plot the parameter ('alpha', 'beta', 'gamma', 'splice', 'unsplice') in pseudotime, or customize the parameters in x-axis and y-axis of a gene.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="celldancer.cdplt.scatter_cell.html#celldancer.cdplt.scatter_cell" title="celldancer.cdplt.scatter_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scatter_cell</span></code></a>(ax, cellDancer_df[, colors, ...])</p></td>
+<td><p>Plot the RNA velocity on the embedding space; or plot the kinetic parameters ('alpha', 'beta', 'gamma', 'splice', 'unsplice', or 'pseudotime') of one gene on the embedding space.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="celldancer.cdplt.plot_kinetic_para.html#celldancer.cdplt.plot_kinetic_para" title="celldancer.cdplt.plot_kinetic_para"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_kinetic_para</span></code></a>(ax, kinetic_para, ...[, ...])</p></td>
+<td><p>Plot the UMAP calculated by the kinetic parameter(s).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="celldancer.cdplt.PTO_Graph.html#celldancer.cdplt.PTO_Graph" title="celldancer.cdplt.PTO_Graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PTO_Graph</span></code></a>(ax, cellDancer_df[, node_layout, ...])</p></td>
+<td><p>Graph visualization of selected cells reflecting their orders in pseudotime (PseudoTimeOrdered_Graph: PTO_Graph).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="simulation-cdsim">
+<h3>Simulation (cdsim)<a class="headerlink" href="#simulation-cdsim" title="Permalink to this headline">¶</a></h3>
+<p class="rubric">Functions</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="celldancer.simulation.simulate.html#celldancer.simulation.simulate" title="celldancer.simulation.simulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simulate</span></code></a>(kinetic_type[, alpha1, alpha2, ...])</p></td>
+<td><p>Simulate a gene with the kinetic type of mono-kinetic, multi-forward, multi-backward, or transcriptional boost.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="celldancer.adata_to_df_with_embed.html" class="btn btn-neutral float-right" title="celldancer.adata_to_df_with_embed" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="cellDancer - Estimating Cell-dependent RNA Velocity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, 6.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
