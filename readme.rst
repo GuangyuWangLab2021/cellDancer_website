@@ -39,3 +39,5 @@ The dependencies could also be installed by ``pip install -r requirements.txt``.
 
 For M1 Mac users if you encountered a problem while installing bezier. Please refer to the following link:
 https://bezier.readthedocs.io/en/2021.2.12/#installing
+
+If any other dependency could not be installed, try ``pip install --no-deps celldancer``. Then install the dependencies by ``pip install -r requirements.txt``.
