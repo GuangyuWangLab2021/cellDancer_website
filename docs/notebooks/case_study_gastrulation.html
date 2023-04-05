@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Delineating the transcriptional boost on single-cell resolution in gastrulation erythroid maturation &mdash; cellDancer  documentation</title>
+  <title>Case study 1: Gastrulation erythroid maturation &mdash; cellDancer  documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Inferring RNA velocities on each branch for branching genes in the mouse hippocampus development" href="case_study_neuro.html" />
+    <link rel="next" title="Case Study 2: Mouse Hippocampus Development" href="case_study_neuro.html" />
     <link rel="prev" title="Data Preparation" href="../data_preprocessing.html" /> 
 </head>
 
@@ -101,7 +101,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_preprocessing.html">Data Preparation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Delineating the transcriptional boost on single-cell resolution in gastrulation erythroid maturation</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Case study 1: Gastrulation erythroid maturation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Import-packages">Import packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Load-data">Load data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Estimate-RNA-velocity-for-sample-genes">Estimate RNA velocity for sample genes</a></li>
@@ -111,13 +111,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#Display-the-abundance-of-spliced-RNA-along-pseudotime">Display the abundance of spliced RNA along pseudotime</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="case_study_neuro.html">Inferring RNA velocities on each branch for branching genes in the mouse hippocampus development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="case_study_pancreas.html">Deciphering cell identity using the cell-specific reaction rates in pancreatic endocrinogenesis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="case_study_hgforebrian.html">Decoding the human embryo glutamatergic neurogenesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_study_neuro.html">Case Study 2: Mouse Hippocampus Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_study_pancreas.html">Case study 3: Pancreatic endocrinogenesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_study_hgforebrian.html">Case study 4: Human embryo glutamatergic neurogenesis</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Application of dynamo</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="case_study_pancreas_dynamo.html">Deciphering gene regulation through vector fields analysis in pancreatic endocrinogenesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_study_pancreas_dynamo.html">Downstream analysis using Dynamo</a></li>
 </ul>
 
             
@@ -166,7 +166,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Delineating the transcriptional boost on single-cell resolution in gastrulation erythroid maturation</li>
+      <li>Case study 1: Gastrulation erythroid maturation</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -455,8 +455,8 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Delineating-the-transcriptional-boost-on-single-cell-resolution-in-gastrulation-erythroid-maturation">
-<h1>Delineating the transcriptional boost on single-cell resolution in gastrulation erythroid maturation<a class="headerlink" href="#Delineating-the-transcriptional-boost-on-single-cell-resolution-in-gastrulation-erythroid-maturation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Case-study-1:-Gastrulation-erythroid-maturation">
+<h1>Case study 1: Gastrulation erythroid maturation<a class="headerlink" href="#Case-study-1:-Gastrulation-erythroid-maturation" title="Permalink to this headline">¶</a></h1>
 <p>This tutorial shows how cellDancer analyzes RNA velocity. The process includes (1) estimating RNA velocity, (2) deriving cell fates on embedding space, and (3) estimating pseudotime.</p>
 <p>This tutorial also demonstrates cellDancer’s ability to resolve the difficulty of predicting the velocity of genes with transcriptional boost mentioned by <a class="reference external" href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-021-02414-y">Barile et al.</a></p>
 <p>Below is the case study for gastrulation erythroid maturation. We select 12,329 cells with 2,000 genes from haemato-endothelial progenitors, blood progenitors 1/2, and erythroid 1/2/3. The embryonic days are selected from E7.0, E7.25, E7.5, E7.75, E8.0, E8.25, and E8.5.</p>
@@ -1445,7 +1445,7 @@ There are 3 clusters.
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="case_study_neuro.html" class="btn btn-neutral float-right" title="Inferring RNA velocities on each branch for branching genes in the mouse hippocampus development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="case_study_neuro.html" class="btn btn-neutral float-right" title="Case Study 2: Mouse Hippocampus Development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="../data_preprocessing.html" class="btn btn-neutral float-left" title="Data Preparation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

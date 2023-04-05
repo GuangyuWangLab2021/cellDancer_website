@@ -98,14 +98,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_preprocessing.html">Data Preparation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_gastrulation.html">Delineating the transcriptional boost on single-cell resolution in gastrulation erythroid maturation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_neuro.html">Inferring RNA velocities on each branch for branching genes in the mouse hippocampus development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_pancreas.html">Deciphering cell identity using the cell-specific reaction rates in pancreatic endocrinogenesis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_hgforebrian.html">Decoding the human embryo glutamatergic neurogenesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_gastrulation.html">Case study 1: Gastrulation erythroid maturation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_neuro.html">Case Study 2: Mouse Hippocampus Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_pancreas.html">Case study 3: Pancreatic endocrinogenesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_hgforebrian.html">Case study 4: Human embryo glutamatergic neurogenesis</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Application of dynamo</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_pancreas_dynamo.html">Deciphering gene regulation through vector fields analysis in pancreatic endocrinogenesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_pancreas_dynamo.html">Downstream analysis using Dynamo</a></li>
 </ul>
 
             
@@ -199,19 +199,20 @@
 </style>
 <div class="section" id="celldancer-estimating-cell-dependent-rna-velocity">
 <h1>cellDancer - Estimating Cell-dependent RNA Velocity<a class="headerlink" href="#celldancer-estimating-cell-dependent-rna-velocity" title="Permalink to this headline">¶</a></h1>
-<p><strong>cellDancer</strong> is a modularized, parallelized, and scalable tool based on a deep learning framework for the RNA velocity analysis of scRNA-seq. The gene phase portraits of <cite>Sulf2</cite> in the pancreatic endocrinogenesis data and <cite>Gnao1</cite> in the mouse hippocampus development data below show the training process of the DNN (deep neural network).</p>
+<p><strong>cellDancer</strong> is a modularized, parallelized, and scalable tool based on a deep learning framework for the RNA velocity analysis of scRNA-seq proposed by <a class="reference external" href="https://www.nature.com/articles/s41587-023-01728-5">Li et al. (Nature Biotechnology, 2023)</a>. The gene phase portraits of <cite>Sulf2</cite> in the pancreatic endocrinogenesis data and <cite>Gnao1</cite> in the mouse hippocampus development data below show the training process of the DNN (deep neural network).</p>
 <a class="reference internal image-reference" href="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/training_progress.png"><img alt="cell_type_u_s_sample_df" src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/training_progress.png" style="width: 100%;" /></a>
 </div>
 <div class="section" id="celldancer-s-key-applications">
 <h1>cellDancer’s key applications<a class="headerlink" href="#celldancer-s-key-applications" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>Estimate cell-specific RNA velocity for each gene.</p></li>
-<li><p>Derive cell fates in embedding space.</p></li>
-<li><p>Estimate pseudotime for each cell in embedding space.</p></li>
+<li><p>Enable accurate inference of dynamic cell state transitions in heterogeneous cell populations.</p></li>
+<li><p>Estimate cell-specific transcription, splicing and degradation rates for each gene and reveal RNA turnover strategies.</p></li>
+<li><p>Improves downstream analysis such as vector field predictions.</p></li>
 </ul>
 <div class="section" id="latest-news">
 <h2>Latest news<a class="headerlink" href="#latest-news" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p>Our work of cellDancer has been published at <a class="reference external" href="https://www.nature.com/articles/s41587-023-01728-5">Nature Biotechnology</a>! (4/3/2023)</p></li>
 <li><p>cellDancer has been released to PyPI (3/21/2023).</p></li>
 </ul>
 <div class="toctree-wrapper compound">
@@ -243,7 +244,7 @@
 <li class="toctree-l2"><a class="reference internal" href="data_preprocessing.html#transfer-adata-format-to-dataframe">Transfer adata format to dataframe</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_gastrulation.html">Delineating the transcriptional boost on single-cell resolution in gastrulation erythroid maturation</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_gastrulation.html">Case study 1: Gastrulation erythroid maturation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_gastrulation.html#Import-packages">Import packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_gastrulation.html#Load-data">Load data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_gastrulation.html#Estimate-RNA-velocity-for-sample-genes">Estimate RNA velocity for sample genes</a></li>
@@ -253,7 +254,7 @@
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_gastrulation.html#Display-the-abundance-of-spliced-RNA-along-pseudotime">Display the abundance of spliced RNA along pseudotime</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_neuro.html">Inferring RNA velocities on each branch for branching genes in the mouse hippocampus development</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_neuro.html">Case Study 2: Mouse Hippocampus Development</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_neuro.html#Import-packages">Import packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_neuro.html#Load-data">Load data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_neuro.html#Estimate-RNA-velocity-for-sample-genes">Estimate RNA velocity for sample genes</a></li>
@@ -264,14 +265,14 @@
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_neuro.html#Visualize-the-reaction-rates,-the-abundance-of-unspliced-RNA,-and-the-abundance-of-spliced-RNA-on-embedding-space">Visualize the reaction rates, the abundance of unspliced RNA, and the abundance of spliced RNA on embedding space</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_pancreas.html">Deciphering cell identity using the cell-specific reaction rates in pancreatic endocrinogenesis</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_pancreas.html">Case study 3: Pancreatic endocrinogenesis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_pancreas.html#Import-packages">Import packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_pancreas.html#Load-cellDancer-result">Load cellDancer result</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_pancreas.html#Project-the-RNA-velocity-onto-the-embedding-space">Project the RNA velocity onto the embedding space</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_pancreas.html#Build-UMAP-based-on-reaction-rates">Build UMAP based on reaction rates</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_hgforebrian.html">Decoding the human embryo glutamatergic neurogenesis</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_hgforebrian.html">Case study 4: Human embryo glutamatergic neurogenesis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_hgforebrian.html#Import-packages">Import packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_hgforebrian.html#Load-cellDancer-result">Load cellDancer result</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_hgforebrian.html#Visualize-the-phase-portraits">Visualize the phase portraits</a></li>
@@ -285,7 +286,7 @@
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Application of dynamo</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_pancreas_dynamo.html">Deciphering gene regulation through vector fields analysis in pancreatic endocrinogenesis</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_pancreas_dynamo.html">Downstream analysis using Dynamo</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_pancreas_dynamo.html#Import-packages">Import packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_pancreas_dynamo.html#Input-the-prediction-of-cellDancer-to-dynamo">Input the prediction of cellDancer to dynamo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_pancreas_dynamo.html#Project-the-RNA-velocity-onto-the-embedding-space">Project the RNA velocity onto the embedding space</a></li>
