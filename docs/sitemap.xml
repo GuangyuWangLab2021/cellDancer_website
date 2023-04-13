@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/API.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/release_notes.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/notebooks/installation.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/data_preprocessing.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/notebooks/case_study_gastrulation.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/notebooks/case_study_neuro.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/notebooks/case_study_pancreas.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/notebooks/case_study_hgforebrian.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/notebooks/case_study_pancreas_dynamo.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/celldancer.adata_to_df_with_embed.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/celldancer.to_dynamo.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/celldancer.export_velocity_to_dynamo.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/celldancer.velocity.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/celldancer.compute_cell_velocity.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/celldancer.pseudo_time.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/celldancer.embedding_kinetic_para.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/celldancer.cdplt.scatter_gene.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/celldancer.cdplt.scatter_cell.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/celldancer.cdplt.plot_kinetic_para.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/celldancer.cdplt.PTO_Graph.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/celldancer.simulation.simulate.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/index.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://guangyuwanglab2021.github.io/cellDancer_website/notebooks/data_preprocessing.html</loc>
+  <lastmod>2022-12-23T19:47:02+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

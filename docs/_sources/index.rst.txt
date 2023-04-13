@@ -1,29 +1,52 @@
 cellDancer - Estimating Cell-dependent RNA Velocity
 ===========================================================================================
 
-**cellDancer** is a modularized, parallelized, and scalable tool based on a deep learning framework for the RNA velocity analysis of scRNA-seq proposed by `Li et al. (Nature Biotechnology, 2023) <https://www.nature.com/articles/s41587-023-01728-5>`_. The gene phase portraits of `Sulf2` in the pancreatic endocrinogenesis data and `Gnao1` in the mouse hippocampus development data below show the training process of the DNN (deep neural network).
-
-.. image:: _static/training_progress.png
-  :width: 100%
-  :alt: cell_type_u_s_sample_df
+**cellDancer** is a modularized, parallelized, and scalable tool based on a deep learning framework for the RNA velocity analysis of scRNA-seq proposed by `Li et al. (Nature Biotechnology, 2023) <https://www.nature.com/articles/s41587-023-01728-5>`_. RNA velocity reflects the dynamic process of cell state transitions based on scRNA-seq experiment data. cellDancer enables the prediction of RNA velocity and the dynamic kinetics of RNA in **single-cell resolution**.
 
 cellDancer's key applications
 ========================================================
 * Enable accurate inference of dynamic cell state transitions in heterogeneous cell populations.
-* Estimate cell-specific transcription, splicing and degradation rates for each gene and reveal RNA turnover strategies.
+
+.. image:: images/key1.png
+  :width: 70%
+  :alt: key1
+
+*Example: Mouse gastrulation erythroid maturation.*
+
+* Estimate cell-specific transcription (α), splicing (β) and degradation (γ) rates for each gene and reveal RNA turnover strategies.
+
+.. image:: images/key2.png
+  :width: 100%
+  :alt: key2
+
+*Example: Mouse hippocampus development.*
+
 * Improves downstream analysis such as vector field predictions.
 
+.. image:: images/key3.png
+  :width: 50%
+  :alt: key3
+
+*Example: Mouse pancreatic endocrinogenesis.*
 
 Latest news
-^^^^^^^^^^^^^^^^^^^^
+========================================================
 - Our work of cellDancer has been published at `Nature Biotechnology <https://www.nature.com/articles/s41587-023-01728-5>`_! (4/3/2023)
 
 - cellDancer has been released to PyPI (3/21/2023).
+
+Support
+========================================================
+Welcome bug reports and suggestions to our `Github issue page <https://github.com/GuangyuWangLab2021/cellDancer/issues>`_!
+
+Table of contents
+========================================================
 
 .. toctree::
     :caption: cellDancer
     :titlesonly:
 
+    about
     API
     release_notes
 
@@ -43,5 +66,3 @@ Latest news
    :caption: Application of dynamo
 
    notebooks/case_study_pancreas_dynamo
-
-

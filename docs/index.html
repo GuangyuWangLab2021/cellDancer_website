@@ -36,7 +36,6 @@
         <script src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_static/underscore.js"></script>
         <script src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_static/js/theme.js"></script>
 
@@ -44,7 +43,7 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="API" href="API.html" /> 
+    <link rel="next" title="About cellDancer" href="about.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -91,6 +90,7 @@
             
               <p class="caption" role="heading"><span class="caption-text">cellDancer</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About cellDancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="API.html">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
 </ul>
@@ -99,7 +99,7 @@
 <li class="toctree-l1"><a class="reference internal" href="notebooks/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_preprocessing.html">Data Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_gastrulation.html">Case study 1: Gastrulation erythroid maturation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_neuro.html">Case Study 2: Mouse Hippocampus Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_neuro.html">Case Study 2: Mouse hippocampus development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_pancreas.html">Case study 3: Pancreatic endocrinogenesis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_hgforebrian.html">Case study 4: Human embryo glutamatergic neurogenesis</a></li>
 </ul>
@@ -199,25 +199,43 @@
 </style>
 <div class="section" id="celldancer-estimating-cell-dependent-rna-velocity">
 <h1>cellDancer - Estimating Cell-dependent RNA Velocity<a class="headerlink" href="#celldancer-estimating-cell-dependent-rna-velocity" title="Permalink to this headline">¶</a></h1>
-<p><strong>cellDancer</strong> is a modularized, parallelized, and scalable tool based on a deep learning framework for the RNA velocity analysis of scRNA-seq proposed by <a class="reference external" href="https://www.nature.com/articles/s41587-023-01728-5">Li et al. (Nature Biotechnology, 2023)</a>. The gene phase portraits of <cite>Sulf2</cite> in the pancreatic endocrinogenesis data and <cite>Gnao1</cite> in the mouse hippocampus development data below show the training process of the DNN (deep neural network).</p>
-<a class="reference internal image-reference" href="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/training_progress.png"><img alt="cell_type_u_s_sample_df" src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/training_progress.png" style="width: 100%;" /></a>
+<p><strong>cellDancer</strong> is a modularized, parallelized, and scalable tool based on a deep learning framework for the RNA velocity analysis of scRNA-seq proposed by <a class="reference external" href="https://www.nature.com/articles/s41587-023-01728-5">Li et al. (Nature Biotechnology, 2023)</a>. RNA velocity reflects the dynamic process of cell state transitions based on scRNA-seq experiment data. cellDancer enables the prediction of RNA velocity and the dynamic kinetics of RNA in <strong>single-cell resolution</strong>.</p>
 </div>
 <div class="section" id="celldancer-s-key-applications">
 <h1>cellDancer’s key applications<a class="headerlink" href="#celldancer-s-key-applications" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>Enable accurate inference of dynamic cell state transitions in heterogeneous cell populations.</p></li>
-<li><p>Estimate cell-specific transcription, splicing and degradation rates for each gene and reveal RNA turnover strategies.</p></li>
+</ul>
+<a class="reference internal image-reference" href="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/key1.png"><img alt="key1" src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/key1.png" style="width: 70%;" /></a>
+<p><em>Example: Mouse gastrulation erythroid maturation.</em></p>
+<ul class="simple">
+<li><p>Estimate cell-specific transcription (α), splicing (β) and degradation (γ) rates for each gene and reveal RNA turnover strategies.</p></li>
+</ul>
+<a class="reference internal image-reference" href="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/key2.png"><img alt="key2" src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/key2.png" style="width: 100%;" /></a>
+<p><em>Example: Mouse hippocampus development.</em></p>
+<ul class="simple">
 <li><p>Improves downstream analysis such as vector field predictions.</p></li>
 </ul>
+<a class="reference internal image-reference" href="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/key3.png"><img alt="key3" src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/key3.png" style="width: 50%;" /></a>
+<p><em>Example: Mouse pancreatic endocrinogenesis.</em></p>
+</div>
 <div class="section" id="latest-news">
-<h2>Latest news<a class="headerlink" href="#latest-news" title="Permalink to this headline">¶</a></h2>
+<h1>Latest news<a class="headerlink" href="#latest-news" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>Our work of cellDancer has been published at <a class="reference external" href="https://www.nature.com/articles/s41587-023-01728-5">Nature Biotechnology</a>! (4/3/2023)</p></li>
 <li><p>cellDancer has been released to PyPI (3/21/2023).</p></li>
 </ul>
+</div>
+<div class="section" id="support">
+<h1>Support<a class="headerlink" href="#support" title="Permalink to this headline">¶</a></h1>
+<p>Welcome bug reports and suggestions to our <a class="reference external" href="https://github.com/GuangyuWangLab2021/cellDancer/issues">Github issue page</a>!</p>
+</div>
+<div class="section" id="table-of-contents">
+<h1>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">cellDancer</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About cellDancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="API.html">API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="celldancer.adata_to_df_with_embed.html">celldancer.adata_to_df_with_embed</a></li>
 <li class="toctree-l2"><a class="reference internal" href="celldancer.to_dynamo.html">celldancer.to_dynamo</a></li>
@@ -254,7 +272,7 @@
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_gastrulation.html#Display-the-abundance-of-spliced-RNA-along-pseudotime">Display the abundance of spliced RNA along pseudotime</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_neuro.html">Case Study 2: Mouse Hippocampus Development</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/case_study_neuro.html">Case Study 2: Mouse hippocampus development</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_neuro.html#Import-packages">Import packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_neuro.html#Load-data">Load data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/case_study_neuro.html#Estimate-RNA-velocity-for-sample-genes">Estimate RNA velocity for sample genes</a></li>
@@ -297,7 +315,6 @@
 </ul>
 </div>
 </div>
-</div>
 
 
            </div>
@@ -305,14 +322,14 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="API.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="about.html" class="btn btn-neutral float-right" title="About cellDancer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, 6.
+        &#169; Copyright June, 2022.
 
     </p>
   </div>

@@ -5,18 +5,85 @@
 
 About cellDancer
 ===========================================================================================
-The existing models of RNA velocity, velocyto and scVelo, are based on kinetics that each cell shares the rates of transcription, splicing, and degradation rates. However, our cellDancer predicts cell-specific transcription, splicing, and degradation rates which build a continuous long-time velocity. In the training of our algorithm, cellDancer minimizes a loss function, which measures the similarity between predicted and observed velocity vectors.
 
-The next section described how does the loss decrease.
+scRNA-seq technology enables us to capture a snapshot of each cell's RNA transcriptome. By analyzing the spliced and unspliced mRNAs from scRNA-seq experiment data, RNA velocity can provide insight into the dynamic transition of cell state and the underlying kinetics of RNA.
 
-Understand the decreasing of loss
---------------------------------------
-The figure of Sulf2 in the pancreatic endocrinogenesis data shows how the DNN (deep neural network) was trained step by step. During minimizing loss function, the predicted velocity of Sulf2 gradually fits to the observed spliced and unspliced mRNAs.
 
-.. image:: images/training_progress1.png
-   :width: 300pt
+cellDancer can accurately predict the RNA velocity of cell states in heterogeneous cell populations of multiple benchmark datasets, including mouse gastrulation erythroid maturation (Figure 1, upper left), mouse hippocampus development (Fig. 1, upper right), human embryonic glutamatergic neurogenesis (Fig. 1, bottom left), and mouse endocrine development (Fig. 1, bottom right).
 
-Below are more examples showing how the model changes during the training.
+.. image:: images/about1.png
+  :width: 100%
+  :alt: about1
 
-.. image:: images/training_progress2.png
-   :width: 300pt
+*Fig. 1*
+
+cellDancer could infer the transcription (α), splicing (β), and degradation (γ) rate of RNA for each gene in each cell. Metabolic labeling\ :sup:`1`\  is an experimental method that measures transcription rate and degradation rate. Using the metabolic labeling data (i.e., scEU-seq) of RPE1-FUCCI cells during cell cycle progression, we verify the cellDancer-predicted kinetic parameters reflect the reality of mRNA turnover rates in cell cycle (Fig. 2). 
+
+.. image:: images/about2.png
+  :width: 100%
+  :alt: about2
+*Fig. 2*
+
+We cluster the genes by the predicted transcription and degradation rates to study the turnover strategy of RNA (Fig. 3). The genes in cluster F are enriched in pathways related to cell communication, including signal transduction, enzyme-linked receptor protein signaling, TGFβ receptor signaling, and stress-activated protein kinase signaling, suggesting a quick communication of cells during mitosis. Cell cycle-related pathways were also enriched in other clusters.
+
+.. image:: images/about3.png
+  :width: 100%
+  :alt: about3
+*Fig. 3*
+
+Based on the RNA Velocity predicted by cellDancer, we in silico suppress the expression of Gata2 in the early stage of blood progenitor cell (Fig. 4). The perturbation results verified the critical role of Gata2 in hematopoiesis.
+
+.. image:: images/about4.png
+  :width: 100%
+  :alt: about4
+*Fig. 4*
+
+Understanding the algorithm
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+The lifetime of RNA is like a swimming pool (Fig. 5). The transcription (α), splicing (β), and degradation (γ) rate jointly influence the abundance of unspliced and spliced mRNA. This reaction kinetics could be represented as the formula in Fig. 6 as La Manno et al. introduced, where u(t) and s(t) are time-dependent concentrations of the premature and mature mRNAs and α, β, γ indicate the transcription, splicing, and degradation rates, respectively.
+
+.. image:: images/about5.png
+  :width: 100%
+  :alt: about5
+*Fig. 5*
+
+.. image:: images/about6.png
+  :width: 50%
+  :alt: about6
+*Fig. 6*
+
+RNA Velocity was proposed by La Manno et al. in 2018\ :sup:`2`\ . They found the abundance of unspliced, pre-mRNA in the circadian-associated genes of mouse liver can be the percussor of spliced, mature mRNA abundance (Fig. 7; s represents spliced, mature mRNA, u represents unspliced, pre-mRNA), which reflects the kinetics of the formula in Fig. 6.
+
+.. image:: images/about7.png
+  :width: 100%
+  :alt: about7
+*Fig. 7*
+
+ds/dt and du/dt could be obtained by estimating the transcription (α), splicing (β), and degradation (γ) rates. Existing methods have certain limitations in the hypothesis of kinetic rates, α is either a constant (`velocyto <http://velocyto.org/velocyto.py/index.html>`_ model\ :sup:`2`\ ) or binary values (`scVelo <https://scvelo.readthedocs.io/en/stable/>`_ model\ :sup:`3`\ ), and β and γ are shared by all the genes and cells. which fails in the evaluation heterogeneous cell populations. However, cellDancer can predict the specific α, β and γ of each gene in each cell through deep learning (Fig. 8).
+
+.. image:: images/about8.png
+  :width: 100%
+  :alt: about8
+*Fig. 8*
+
+In the training of our algorithm, cellDancer minimizes a loss function, which measures the similarity between predicted and observed velocity vectors. The gene phase portraits of `Sulf2` in the pancreatic endocrinogenesis data and `Gnao1` in the mouse hippocampus development data below show the training process of the DNN (deep neural network) (Fig. 9).
+
+.. image:: images/about9.png
+  :width: 100%
+  :alt: about9
+*Fig. 9*
+
+
+
+
+
+For more information, `Supplementary Note 1 <https://static-content.springer.com/esm/art%3A10.1038%2Fs41587-023-01728-5/MediaObjects/41587_2023_1728_MOESM1_ESM.pdf>`_ contains the prototype of our model.
+
+References
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+1. Battich, N. et al. Sequencing metabolically labeled transcripts in single cells reveals mRNA turnover strategies. Science **367**, 1151-1156 (2020).
+2. La Manno, G. et al. RNA velocity of single cells. Nature **560**, 494-+ (2018).
+3. Bergen, V., Lange, M., Peidli, S., Wolf, F.A. & Theis, F.J. Generalizing RNA velocity to transient cell states through dynamical modeling. Nat Biotechnol **38** (2020).
+
+
