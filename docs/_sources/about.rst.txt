@@ -9,7 +9,7 @@ About cellDancer
 scRNA-seq technology enables us to capture a snapshot of each cell's RNA transcriptome. By analyzing the spliced and unspliced mRNAs from scRNA-seq experiment data, RNA velocity can provide insight into the dynamic transition of cell state and the underlying kinetics of RNA\ :sup:`1`\ .
 
 
-cellDancer can accurately predict the RNA velocity of cell states in heterogeneous cell populations of multiple benchmark datasets, including mouse gastrulation erythroid maturation (Figure 1, upper left), mouse hippocampus development (Fig. 1, upper right), human embryonic glutamatergic neurogenesis (Fig. 1, bottom left), and mouse endocrine development (Fig. 1, bottom right).
+cellDancer\ :sup:`2`\  can accurately predict the RNA velocity of cell states in heterogeneous cell populations of multiple benchmark datasets, including mouse gastrulation erythroid maturation (Figure 1, upper left), mouse hippocampus development (Fig. 1, upper right), human embryonic glutamatergic neurogenesis (Fig. 1, bottom left), and mouse endocrine development (Fig. 1, bottom right).
 
 .. image:: images/about1.png
   :width: 100%
@@ -17,7 +17,7 @@ cellDancer can accurately predict the RNA velocity of cell states in heterogeneo
 
 *Fig. 1*
 
-cellDancer could infer the transcription (α), splicing (β), and degradation (γ) rate of RNA for each gene in each cell. Metabolic labeling\ :sup:`2`\  is an experimental method that measures transcription rate and degradation rate. Using the metabolic labeling data (i.e., scEU-seq) of RPE1-FUCCI cells during cell cycle progression, we verify the cellDancer-predicted kinetic parameters reflect the reality of mRNA turnover rates in cell cycle (Fig. 2). 
+cellDancer could infer the transcription (α), splicing (β), and degradation (γ) rate of RNA for each gene in each cell. Metabolic labeling\ :sup:`3`\  is an experimental method that measures transcription rate and degradation rate. Using the metabolic labeling data (i.e., scEU-seq) of RPE1-FUCCI cells during cell cycle progression, we verify the cellDancer-predicted kinetic parameters reflect the reality of mRNA turnover rates in cell cycle (Fig. 2). 
 
 .. image:: images/about2.png
   :width: 100%
@@ -31,7 +31,7 @@ We cluster the genes by the predicted transcription and degradation rates to stu
   :alt: about3
 *Fig. 3*
 
-Based on the RNA Velocity predicted by cellDancer, we in silico suppress the expression of Gata2 in the early stage of blood progenitor cell (Fig. 4). The perturbation results verified the critical role of Gata2 in hematopoiesis.
+Based on the RNA Velocity predicted by cellDancer, we in silico suppress the expression of *Gata2* in the early stage of blood progenitor cell (Fig. 4). The perturbation results verified the critical role of *Gata2* in hematopoiesis.
 
 .. image:: images/about4.png
   :width: 100%
@@ -41,7 +41,7 @@ Based on the RNA Velocity predicted by cellDancer, we in silico suppress the exp
 Understanding the algorithm
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-The lifetime of RNA is like a swimming pool (Fig. 5). The transcription (α), splicing (β), and degradation (γ) rate jointly influence the abundance of unspliced and spliced mRNA. This reaction kinetics could be represented as the formula in Fig. 6 as La Manno et al. introduced, where u(t) and s(t) are time-dependent concentrations of the premature and mature mRNAs and α, β, γ indicate the transcription, splicing, and degradation rates, respectively.
+The lifetime of RNA is like a swimming pool (Fig. 5). The transcription (α), splicing (β), and degradation (γ) rate jointly influence the abundance of unspliced and spliced mRNA. This reaction kinetics could be represented as the formula in Fig. 6 as La Manno et al. introduced\ :sup:`1`\ , where u(t) and s(t) are time-dependent concentrations of the premature and mature mRNAs and α, β, γ indicate the transcription, splicing, and degradation rates, respectively.
 
 .. image:: images/about5.png
   :width: 100%
@@ -60,7 +60,7 @@ RNA Velocity was proposed by La Manno et al. in 2018\ :sup:`1`\ . They found the
   :alt: about7
 *Fig. 7*
 
-ds/dt and du/dt could be obtained by estimating the transcription (α), splicing (β), and degradation (γ) rates. Existing methods have certain limitations in the hypothesis of kinetic rates, α is either a constant (`velocyto <http://velocyto.org/velocyto.py/index.html>`_ model\ :sup:`3`\ ) or binary values (`scVelo <https://scvelo.readthedocs.io/en/stable/>`_ model\ :sup:`1`\ ), and β and γ are shared by all the genes and cells. which fails in the evaluation heterogeneous cell populations. However, cellDancer can predict the specific α, β and γ of each gene in each cell through deep learning (Fig. 8).
+ds/dt and du/dt could be obtained by estimating the transcription (α), splicing (β), and degradation (γ) rates. Existing methods have certain limitations in the hypothesis of kinetic rates, α is either a constant (`velocyto <http://velocyto.org/velocyto.py/index.html>`_ model\ :sup:`1`\ ) or binary values (`scVelo <https://scvelo.readthedocs.io/en/stable/>`_ model\ :sup:`4`\ ), and β and γ are shared by all the genes and cells. which fails in the evaluation heterogeneous cell populations. However, cellDancer can predict the specific α, β and γ of each gene in each cell through deep learning (Fig. 8).
 
 .. image:: images/about8.png
   :width: 100%
@@ -82,8 +82,9 @@ For more information, `Supplementary Note 1 <https://static-content.springer.com
 
 References
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-1. La Manno, G. et al. RNA velocity of single cells. Nature **560**, 494-+ (2018).
-2. Battich, N. et al. Sequencing metabolically labeled transcripts in single cells reveals mRNA turnover strategies. Science **367**, 1151-1156 (2020).
-3. Bergen, V., Lange, M., Peidli, S., Wolf, F.A. & Theis, F.J. Generalizing RNA velocity to transient cell states through dynamical modeling. Nat Biotechnol **38** (2020).
+1. La Manno, G. et al. RNA velocity of single cells. *Nature* **560**, 494-+ (2018).
+2. Li, S. et al. A relay velocity model infers cell-dependent RNA velocity. *Nat Biotechnol* (2023).
+3. Battich, N. et al. Sequencing metabolically labeled transcripts in single cells reveals mRNA turnover strategies. *Science* **367**, 1151-1156 (2020).
+4. Bergen, V., Lange, M., Peidli, S., Wolf, F.A. & Theis, F.J. Generalizing RNA velocity to transient cell states through dynamical modeling. *Nat Biotechnol* **38** (2020).
 
 

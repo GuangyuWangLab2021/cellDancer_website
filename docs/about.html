@@ -36,7 +36,6 @@
         <script src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_static/underscore.js"></script>
         <script src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_static/js/theme.js"></script>
 
@@ -202,16 +201,16 @@
 <div class="section" id="about-celldancer">
 <h1>About cellDancer<a class="headerlink" href="#about-celldancer" title="Permalink to this headline">¶</a></h1>
 <p>scRNA-seq technology enables us to capture a snapshot of each cell’s RNA transcriptome. By analyzing the spliced and unspliced mRNAs from scRNA-seq experiment data, RNA velocity can provide insight into the dynamic transition of cell state and the underlying kinetics of RNA<sup>1</sup>.</p>
-<p>cellDancer can accurately predict the RNA velocity of cell states in heterogeneous cell populations of multiple benchmark datasets, including mouse gastrulation erythroid maturation (Figure 1, upper left), mouse hippocampus development (Fig. 1, upper right), human embryonic glutamatergic neurogenesis (Fig. 1, bottom left), and mouse endocrine development (Fig. 1, bottom right).</p>
+<p>cellDancer<sup>2</sup> can accurately predict the RNA velocity of cell states in heterogeneous cell populations of multiple benchmark datasets, including mouse gastrulation erythroid maturation (Figure 1, upper left), mouse hippocampus development (Fig. 1, upper right), human embryonic glutamatergic neurogenesis (Fig. 1, bottom left), and mouse endocrine development (Fig. 1, bottom right).</p>
 <a class="reference internal image-reference" href="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/about1.png"><img alt="about1" src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/about1.png" style="width: 100%;" /></a>
 <p><em>Fig. 1</em></p>
-<p>cellDancer could infer the transcription (α), splicing (β), and degradation (γ) rate of RNA for each gene in each cell. Metabolic labeling<sup>2</sup> is an experimental method that measures transcription rate and degradation rate. Using the metabolic labeling data (i.e., scEU-seq) of RPE1-FUCCI cells during cell cycle progression, we verify the cellDancer-predicted kinetic parameters reflect the reality of mRNA turnover rates in cell cycle (Fig. 2).</p>
+<p>cellDancer could infer the transcription (α), splicing (β), and degradation (γ) rate of RNA for each gene in each cell. Metabolic labeling<sup>3</sup> is an experimental method that measures transcription rate and degradation rate. Using the metabolic labeling data (i.e., scEU-seq) of RPE1-FUCCI cells during cell cycle progression, we verify the cellDancer-predicted kinetic parameters reflect the reality of mRNA turnover rates in cell cycle (Fig. 2).</p>
 <a class="reference internal image-reference" href="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/about2.png"><img alt="about2" src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/about2.png" style="width: 100%;" /></a>
 <p><em>Fig. 2</em></p>
 <p>We cluster the genes by the predicted transcription and degradation rates to study the turnover strategy of RNA (Fig. 3). The genes in cluster F are enriched in pathways related to cell communication, including signal transduction, enzyme-linked receptor protein signaling, TGFβ receptor signaling, and stress-activated protein kinase signaling, suggesting a quick communication of cells during mitosis. Cell cycle-related pathways were also enriched in other clusters.</p>
 <a class="reference internal image-reference" href="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/about3.png"><img alt="about3" src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/about3.png" style="width: 100%;" /></a>
 <p><em>Fig. 3</em></p>
-<p>Based on the RNA Velocity predicted by cellDancer, we in silico suppress the expression of <cite>Gata2</cite> in the early stage of blood progenitor cell (Fig. 4). The perturbation results verified the critical role of <cite>Gata2</cite> in hematopoiesis.</p>
+<p>Based on the RNA Velocity predicted by cellDancer, we in silico suppress the expression of <em>Gata2</em> in the early stage of blood progenitor cell (Fig. 4). The perturbation results verified the critical role of <em>Gata2</em> in hematopoiesis.</p>
 <a class="reference internal image-reference" href="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/about4.png"><img alt="about4" src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/about4.png" style="width: 100%;" /></a>
 <p><em>Fig. 4</em></p>
 <div class="section" id="understanding-the-algorithm">
@@ -224,7 +223,7 @@
 <p>RNA Velocity was proposed by La Manno et al. in 2018<sup>1</sup>. They found the abundance of unspliced, pre-mRNA in the circadian-associated genes of mouse liver can be the percussor of spliced, mature mRNA abundance (Fig. 7; s represents spliced, mature mRNA, u represents unspliced, pre-mRNA), which reflects the kinetics of the formula in Fig. 6.</p>
 <a class="reference internal image-reference" href="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/about7.png"><img alt="about7" src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/about7.png" style="width: 100%;" /></a>
 <p><em>Fig. 7</em></p>
-<p>ds/dt and du/dt could be obtained by estimating the transcription (α), splicing (β), and degradation (γ) rates. Existing methods have certain limitations in the hypothesis of kinetic rates, α is either a constant (<a class="reference external" href="http://velocyto.org/velocyto.py/index.html">velocyto</a> model<sup>3</sup>) or binary values (<a class="reference external" href="https://scvelo.readthedocs.io/en/stable/">scVelo</a> model<sup>1</sup>), and β and γ are shared by all the genes and cells. which fails in the evaluation heterogeneous cell populations. However, cellDancer can predict the specific α, β and γ of each gene in each cell through deep learning (Fig. 8).</p>
+<p>ds/dt and du/dt could be obtained by estimating the transcription (α), splicing (β), and degradation (γ) rates. Existing methods have certain limitations in the hypothesis of kinetic rates, α is either a constant (<a class="reference external" href="http://velocyto.org/velocyto.py/index.html">velocyto</a> model<sup>1</sup>) or binary values (<a class="reference external" href="https://scvelo.readthedocs.io/en/stable/">scVelo</a> model<sup>4</sup>), and β and γ are shared by all the genes and cells. which fails in the evaluation heterogeneous cell populations. However, cellDancer can predict the specific α, β and γ of each gene in each cell through deep learning (Fig. 8).</p>
 <a class="reference internal image-reference" href="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/about8.png"><img alt="about8" src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_images/about8.png" style="width: 100%;" /></a>
 <p><em>Fig. 8</em></p>
 <p>In the training of our algorithm, cellDancer minimizes a loss function, which measures the similarity between predicted and observed velocity vectors. The gene phase portraits of <cite>Sulf2</cite> in the pancreatic endocrinogenesis data and <cite>Gnao1</cite> in the mouse hippocampus development data below show the training process of the DNN (deep neural network) (Fig. 9).</p>
@@ -235,9 +234,10 @@
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><p>La Manno, G. et al. RNA velocity of single cells. Nature <strong>560</strong>, 494-+ (2018).</p></li>
-<li><p>Battich, N. et al. Sequencing metabolically labeled transcripts in single cells reveals mRNA turnover strategies. Science <strong>367</strong>, 1151-1156 (2020).</p></li>
-<li><p>Bergen, V., Lange, M., Peidli, S., Wolf, F.A. &amp; Theis, F.J. Generalizing RNA velocity to transient cell states through dynamical modeling. Nat Biotechnol <strong>38</strong> (2020).</p></li>
+<li><p>La Manno, G. et al. RNA velocity of single cells. <em>Nature</em> <strong>560</strong>, 494-+ (2018).</p></li>
+<li><p>Li, S. et al. A relay velocity model infers cell-dependent RNA velocity. <em>Nat Biotechnol</em> (2023).</p></li>
+<li><p>Battich, N. et al. Sequencing metabolically labeled transcripts in single cells reveals mRNA turnover strategies. <em>Science</em> <strong>367</strong>, 1151-1156 (2020).</p></li>
+<li><p>Bergen, V., Lange, M., Peidli, S., Wolf, F.A. &amp; Theis, F.J. Generalizing RNA velocity to transient cell states through dynamical modeling. <em>Nat Biotechnol</em> <strong>38</strong> (2020).</p></li>
 </ol>
 </div>
 </div>
