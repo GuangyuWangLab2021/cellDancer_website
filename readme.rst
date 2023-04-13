@@ -4,7 +4,7 @@ cellDancer - Estimating Cell-dependent RNA Velocity
 **cellDancer** is a modularized, parallelized, and scalable tool based on a deep learning framework for the RNA velocity analysis of scRNA-seq. Our website of tutorials is available at `cellDancer Website <https://guangyuwanglab2021.github.io/cellDancer_website/>`_.
 
 
-.. image:: _static/training_progress.png
+.. image:: docs/_static/training_progress.png
   :width: 100%
   :alt: cell_type_u_s_sample_df
 
