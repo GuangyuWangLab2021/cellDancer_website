@@ -92,6 +92,7 @@
             
               <p class="caption" role="heading"><span class="caption-text">cellDancer</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About cellDancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="API.html">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
 </ul>
@@ -203,7 +204,7 @@
 </style>
 <div class="section" id="data-preparation">
 <h1>Data Preparation<a class="headerlink" href="#data-preparation" title="Permalink to this headline">¶</a></h1>
-<p>In our tutorials of <a class="reference external" href="notebooks/case_study_gastrulation.html">Delineating the transcriptional boost on single-cell resolution in gastrulation erythroid maturation data</a>, <a class="reference external" href="notebooks/case_study_neuro.html">Inferring RNA velocities on each branch for branching genes in the mouse hippocampus development</a>, <a class="reference external" href="notebooks/case_study_pancreas.html">Deciphering cell identity using the cell-specific reaction rates in pancreatic endocrinogenesis</a>, and <a class="reference external" href="notebooks/case_study_hgforebrian.html">Decoding the human embryo glutamatergic neurogenesis</a>, the data has already been prepared. To load your own data, the data format and the method to prepare the data is introduced below.</p>
+<p>In our tutorials of <a class="reference external" href="notebooks/case_study_gastrulation.html">Case study 1: Gastrulation erythroid maturation</a>, <a class="reference external" href="notebooks/case_study_neuro.html">Case Study 2: Mouse hippocampus development</a>, <a class="reference external" href="notebooks/case_study_pancreas.html">Case study 3: Pancreatic endocrinogenesis</a>, and <a class="reference external" href="notebooks/case_study_hgforebrian.html">Case study 4: Human embryo glutamatergic neurogenesis</a>, the data has already been prepared. To load your own data, the data format and the method to prepare the data is introduced below.</p>
 <p>The input data for the prediction of velocity is in <code class="docutils literal notranslate"><span class="pre">csv</span></code> format. And could be loaded using <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>. Taking the <a class="reference external" href="https://drive.google.com/file/d/1XYWaJ3AyMspW7Wfy43LAcgsYm9GGDDh1/view?usp=sharing">cell_type_u_s_sample_df.csv</a> below as an example of 5 cells corresponding to 2 genes as shown below:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">cell_type_u_s</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;your_path/cell_type_u_s_sample_df.csv&#39;</span><span class="p">)</span>

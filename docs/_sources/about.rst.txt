@@ -11,7 +11,7 @@ RNA Velocity
 
 scRNA-seq technology enables us to capture a snapshot of each cell's RNA transcriptome. By analyzing the spliced and unspliced mRNAs from scRNA-seq experiment data, RNA velocity can provide insights into the dynamic transition of cell state and the underlying kinetics of RNA\ :sup:`1`\ . 
 
-To easily understand the concept of RNA velocity, we use the cartoon of swimming pool to show the idea (Fig. 1). The transcription (α), splicing (β), and degradation (γ) rates jointly influence the abundance of unspliced and spliced mRNA. This reaction kinetics could be represented as the two Ordinary differential equations (ODEs) purposed by La Manno et al. (Fig. 2)\ :sup:`1`\ , where u(t) and s(t) are time-dependent concentrations of the premature and mature mRNAs and α, β, γ indicate the transcription, splicing, and degradation rates, respectively.
+To easily understand the concept of RNA velocity, we use the cartoon of swimming pool to show the idea (Fig. 1). The transcription (α), splicing (β), and degradation (γ) rates jointly regulate the abundance of unspliced and spliced mRNA. This reaction kinetics could be represented as the two Ordinary Differential Equations (ODEs) purposed by La Manno et al. (Fig. 2)\ :sup:`1`\ , where u(t) and s(t) are time-dependent concentrations of the premature and mature mRNAs and α, β, γ indicate the transcription, splicing, and degradation rates, respectively.
 
 .. image:: images/about1.png
   :width: 100%
@@ -23,21 +23,21 @@ To easily understand the concept of RNA velocity, we use the cartoon of swimming
   :alt: about2
 *Fig. 2* The two ODEs describing the reaction kinetics of mRNA.
 
-La Manno et al. are the first to introduce the concept of RNA velocity\ :sup:`1`\. In their study, the abundance of unspliced, pre-mRNA in the circadian-associated genes of mouse liver can be the percussor of spliced, mature mRNA abundance (Fig. 3; s represents spliced, mature mRNA, u represents unspliced, pre-mRNA), which reflects the kinetics of the ODEs in Fig. 2.
+La Manno et al. are the first to introduce the concept of RNA velocity\ :sup:`1`\. In their study, the abundance of unspliced, pre-mRNA in the circadian-associated genes of mouse liver can be the percussor of spliced, mature mRNA abundance (Fig. 3; s represents spliced, mature mRNA; u represents unspliced, pre-mRNA). The corresponding kinetics could be described by ODEs in Fig. 2.
 
 .. image:: images/about3.png
   :width: 100%
   :alt: about3
 *Fig. 3*  e, Abundance of spliced (s) and unspliced (u) mRNAs for circadian-associated genes in the mouse liver. f, g, Phase portraits observed for a pair of circadian-driven genes: *Fgf1* (f) and *Cbs* (g). (adapted from La Manno et al., *Nature*, 2018)
 
-ds/dt and du/dt could be obtained by estimating the transcription (α), splicing (β), and degradation (γ) rates. Existing methods have certain limitations in the hypothesis of kinetic rates, α is either a constant (`velocyto <http://velocyto.org/velocyto.py/index.html>`_ model\ :sup:`1`\ ) or binary values (`scVelo <https://scvelo.readthedocs.io/en/stable/>`_ model\ :sup:`2`\ ), and β and γ are shared by all the genes and cells, which may have unpredictable results, while cellDancer can predict the specific α, β and γ of each gene in each cell through deep learning (Fig. 4).
+ds/dt and du/dt could be obtained by estimating the transcription (α), splicing (β), and degradation (γ) rates. Existing methods have certain limitations in the hypothesis of kinetic rates, α is either a constant (`velocyto <http://velocyto.org/velocyto.py/index.html>`_ model\ :sup:`1`\ ) or binary values (`scVelo <https://scvelo.readthedocs.io/en/stable/>`_ model\ :sup:`2`\ ), and β and γ are shared by all the genes and cells, which may have unpredictable performance, while cellDancer can predict the specific α, β and γ of each gene in each cell through deep learning (Fig. 4).
 
 .. image:: images/about4.png
   :width: 100%
   :alt: about4
 *Fig. 4* The deep learning work flow of cellDancer.
 
-In our algorithm, cellDancer minimizes a loss function, which measures the similarity between predicted and observed velocity vectors. The gene phase portraits of `Sulf2` in the pancreatic endocrinogenesis data and `Gnao1` in the mouse hippocampus development data below show the training process of the DNN (deep neural network) (Fig. 5).
+In our algorithm, cellDancer\ :sup:`3`\  minimizes a loss function, which measures the similarity between predicted and observed velocity vectors. The gene phase portraits of `Sulf2` in the pancreatic endocrinogenesis data and `Gnao1` in the mouse hippocampus development data below show the training process of the DNN (deep neural network) (Fig. 5).
 
 .. image:: images/about5.png
   :width: 100%
@@ -49,14 +49,14 @@ For more information, `Supplementary Note 1 <https://static-content.springer.com
 Applications of cellDancer
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-cellDancer\ :sup:`3`\  can accurately predict the cell state transitions in heterogeneous cell populations of multiple benchmark datasets, including mouse gastrulation erythroid maturation (Figure 6, upper left), mouse hippocampus development (Fig. 6, upper right), human embryonic glutamatergic neurogenesis (Fig. 6, bottom left), and mouse endocrine development (Fig. 6, bottom right).
+cellDancer can accurately predict the cell state transitions in heterogeneous cell populations of multiple benchmark datasets, including mouse gastrulation erythroid maturation (Figure 6, upper left), mouse hippocampus development (Fig. 6, upper right), human embryonic glutamatergic neurogenesis (Fig. 6, bottom left), and mouse endocrine development (Fig. 6, bottom right).
 
 .. image:: images/about6.png
   :width: 100%
   :alt: about6
 *Fig. 6* The cell states transitions predicted by cellDancer.
 
-cellDancer could infer the transcription (α), splicing (β), and degradation (γ) rates of RNA for each gene in each cell. Metabolic labeling\ :sup:`4`\  is an experimental method that measures transcription rate and degradation rate. Using the metabolic labeling data (i.e., scEU-seq) of RPE1-FUCCI cells during cell cycle progression, we verify the cellDancer-predicted kinetic parameters reflect the reality of mRNA turnover rates in cell cycle (Fig. 7). 
+cellDancer could infer the transcription (α), splicing (β), and degradation (γ) rates of RNA for each gene in each cell. Metabolic labeling\ :sup:`4`\  is an experimental method that measures transcription rate and degradation rate. Using the metabolic labeling data (i.e., scEU-seq) of RPE1-FUCCI cells during cell cycle progression, we verify the cellDancer-predicted kinetic parameters are consistent with the reality mRNA turnover rates in cell cycle (Fig. 7).
 
 .. image:: images/about7.png
   :width: 100%

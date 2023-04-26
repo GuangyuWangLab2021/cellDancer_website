@@ -1,7 +1,7 @@
 Data Preparation
 ===========================================================================================
 
-In our tutorials of `Delineating the transcriptional boost on single-cell resolution in gastrulation erythroid maturation data <notebooks/case_study_gastrulation.html>`_, `Inferring RNA velocities on each branch for branching genes in the mouse hippocampus development <notebooks/case_study_neuro.html>`_, `Deciphering cell identity using the cell-specific reaction rates in pancreatic endocrinogenesis <notebooks/case_study_pancreas.html>`_, and `Decoding the human embryo glutamatergic neurogenesis <notebooks/case_study_hgforebrian.html>`_, the data has already been prepared. To load your own data, the data format and the method to prepare the data is introduced below.
+In our tutorials of `Case study 1: Gastrulation erythroid maturation <notebooks/case_study_gastrulation.html>`_, `Case Study 2: Mouse hippocampus development <notebooks/case_study_neuro.html>`_, `Case study 3: Pancreatic endocrinogenesis <notebooks/case_study_pancreas.html>`_, and `Case study 4: Human embryo glutamatergic neurogenesis <notebooks/case_study_hgforebrian.html>`_, the data has already been prepared. To load your own data, the data format and the method to prepare the data is introduced below.
 
 The input data for the prediction of velocity is in ``csv`` format. And could be loaded using ``pd.read_csv()``. Taking the `cell_type_u_s_sample_df.csv <https://drive.google.com/file/d/1XYWaJ3AyMspW7Wfy43LAcgsYm9GGDDh1/view?usp=sharing>`_ below as an example of 5 cells corresponding to 2 genes as shown below::
 
