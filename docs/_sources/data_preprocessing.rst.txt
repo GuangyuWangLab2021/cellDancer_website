@@ -13,14 +13,42 @@ The input data for the prediction of velocity is in ``csv`` format. And could be
   :width: 100%
   :alt: cell_type_u_s_sample_df
 
-The gene information is represented by columns of ``gene_name``, ``unsplice``, and ``splice``. The cell information is represented by columns ``cellID``, ``clusters``, ``embedding1``, and ``embedding2``. ``unsplice`` and ``splice`` columns represent the spliced and unspliced counts, separately. ``cellID`` is the unique id of each cell. ``clusters`` represent the cell type of each cell. ``embedding1`` and ``embedding2`` are the 2-dimensional representation of all cells such as UMAP, PCA, or t-SNE. The sample could be viewed by 
+The gene information is represented by columns of ``gene_name``, ``unsplice``, and ``splice``. The cell information is represented by columns ``cellID``, ``clusters``, ``embedding1``, and ``embedding2``. ``unsplice`` and ``splice`` columns represent the spliced and unspliced counts, separately. ``cellID`` is the unique id of each cell. ``clusters`` represent the cell type of each cell. ``embedding1`` and ``embedding2`` are the 2-dimensional representation of all cells such as UMAP, PCA, or t-SNE. 
 
-
-Transfer adata format to dataframe
+Preprocessing
 --------------------------------------
-The two count matrices of unspliced and spliced abundances could be obtained from standard sequencing protocols. They could be counted by `velocyto <http://velocyto.org/velocyto.py/tutorial/cli.html#running-velocyto>`_ or `loompy/kallisto <https://linnarssonlab.org/loompy/kallisto/index.html>`_ pipeline. 
+Here is an overview of preparing from the scRNA sequencing data, fastq. We need our reads to be mapped to intron regions to get the counts of unspliced mRNA. If you are running 10X protocol, as `10X suggested <https://support.10xgenomics.com/docs/intron-mode-rec>`_ 'if you are running the cellranger count pipeline, you can add the --include-introns flag to the command.'
 
-We also provide a function (``cd.adata_to_df_with_embed()``) to transfer from `Anndata <https://anndata-tutorials.readthedocs.io/en/latest/getting-started.html>`_ (a format of storing annotated data, usually are loom file) to ``csv`` format. For example, after the `preprocessing in Anndata format <https://scvelo.readthedocs.io/VelocityBasics/>`_. To transfer to pandas.DataFrame/csv format, ``cd.adata_to_df_with_embed()`` could be used. For example, in the command of::
+After the mapping, the two count matrices of unspliced and spliced abundances could be obtained by `velocyto <http://velocyto.org/velocyto.py/tutorial/cli.html#running-velocyto>`_. We can combine the loom files of different samples with `loompy <https://linnarssonlab.org/loompy/kallisto/index.html>`_ . After this step, the 'layers' of adata will contain 'unsplice' and 'splice'.
+
+There is one more step to get the 'spliced' and 'unspliced' in our pandas DataFrame. We need the moments of the spliced and unspliced counts. Thus, we can use the pre-processing steps below to get the moments::
+
+   # !pip install scvelo --upgrade --quiet
+   import scvelo as scv
+   scv.pp.filter_genes(adata, min_shared_counts=20)
+   scv.pp.normalize_per_cell(adata)
+   scv.pp.filter_genes_dispersion(adata, n_top_genes=2000)
+   scv.pp.log1p(adata)
+   scv.pp.filter_and_normalize(adata, min_shared_counts=20, n_top_genes=2000)
+   scv.pp.moments(adata, n_pcs=30, n_neighbors=30)
+
+Now we get the 'Mu' and 'Ms' in 'layers' of adata. 'Mu' and 'Ms' will be used in our prediction of RNA velocity.
+
+The embedding space (e.g., t-SNE or UMAP) in 'obsm' of adata could be obtained using `SCANPY <https://scanpy-tutorials.readthedocs.io/en/latest/index.html>`_. Identifing cell type will be helpful for the futher analysis of RNA velocity. `Here <https://scanpy-tutorials.readthedocs.io/en/latest/plotting/core.html>`_ shows examples of identifing cell types.
+
+Below is an example of pre-processed adata::
+
+   AnnData object with n_obs × n_vars = 23496 × 18964
+       obs: 'orig.ident', 'nCount_RNA', 'nFeature_RNA', 'donor_id', 'prob_max', 'prob_doublet', 'n_vars', 'best_singlet', 'doublet_logLikRatio', 'nCount_SCT', 'nFeature_SCT', 'pANN', 'gender', 'location', 'donors', 'SCT_snn_res.0.5', 'seurat_clusters', 'S.Score', 'G2M.Score', 'Phase', 'old.ident', 'RNA_snn_res.0.4', 'celltype', 'batch', 'initial_size_unspliced', 'initial_size_spliced', 'initial_size'
+       var: 'name', 'Accession', 'Chromosome', 'End', 'Start', 'Strand'
+       uns: 'cell_types_colors'
+       obsm: 'X_pca', 'X_umap'
+       layers: 'ambiguous', 'matrix', 'spliced', 'unspliced', 'Mu', 'Ms'
+
+Transferring adata format to dataframe
+--------------------------------------
+
+We provide a function (``cd.adata_to_df_with_embed()``) to transfer from `Anndata <https://anndata-tutorials.readthedocs.io/en/latest/getting-started.html>`_ (a format of storing annotated data, usually are loom file) to ``csv`` format. For example, after the `preprocessing in Anndata format <https://scvelo.readthedocs.io/VelocityBasics/>`_, to transfer to pandas.DataFrame/csv format, ``cd.adata_to_df_with_embed()`` could be used. For example, in the command of::
     
    import pandas as pd
    import celldancer.utilities as cdutil
@@ -30,7 +58,6 @@ We also provide a function (``cd.adata_to_df_with_embed()``) to transfer from `A
                                  embed_para='X_umap', 
                                  save_path='cell_type_u_s.csv', 
                                  gene_list=['Hba-x','Smim1'])
-
 
 ``splice`` and ``unsplice`` columns are obtained from the ``['Ms', 'Mu']`` attributes of ``adata.layers``. Also, ``cellID`` column is obtained from ``adata.obs.index``. ``clusters`` column is obtained from ``['celltype']`` of ``adata.obs``. The ``embedding1`` and ``embedding2`` columns are obtained from ``['X_umap']`` attribute of ``adata.obsm``.
 
