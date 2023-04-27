@@ -30,7 +30,7 @@ There is one more step to get the 'spliced' and 'unspliced' in our pandas DataFr
    scv.pp.filter_genes_dispersion(adata, n_top_genes=2000)
    scv.pp.log1p(adata)
    scv.pp.filter_and_normalize(adata, min_shared_counts=20, n_top_genes=2000)
-   scv.pp.moments(adata, n_pcs=30, n_neighbors=30)
+   scv.pp.moments(adata, n_pcs=30, n_neighbors=30) # cell amount will influence the setting of n_neighbors
 
 Now we get the 'Mu' and 'Ms' in 'layers' of adata. 'Mu' and 'Ms' will be used in our prediction of RNA velocity.
 
@@ -60,4 +60,37 @@ We provide a function (``cd.adata_to_df_with_embed()``) to transfer from `Anndat
                                  gene_list=['Hba-x','Smim1'])
 
 ``splice`` and ``unsplice`` columns are obtained from the ``['Ms', 'Mu']`` attributes of ``adata.layers``. Also, ``cellID`` column is obtained from ``adata.obs.index``. ``clusters`` column is obtained from ``['celltype']`` of ``adata.obs``. The ``embedding1`` and ``embedding2`` columns are obtained from ``['X_umap']`` attribute of ``adata.obsm``.
+
+You may also want to visualize genes of interest or have an overview of multiple genes before the prediction using the scripts shown below.
+
+::
+   
+   import matplotlib.pyplot as plt
+   import celldancer.cdplt as cdplt
+   import math
+
+   gene_list=list(set(cellDancer_df.gene_name))[0:10] # or specify gene(s) of interest
+
+   ncols=5
+   height=math.ceil(len(gene_list)/5)*4
+   fig = plt.figure(figsize=(20,height))
+
+   for i in range(len(gene_list)):
+       ax = fig.add_subplot(math.ceil(len(gene_list)/ncols), ncols, i+1)
+       cdplt.scatter_gene(
+           ax=ax,
+           x='splice',
+           y='unsplice',
+           cellDancer_df=cellDancer_df,
+           custom_xlim=None,
+           custom_ylim=None,
+           alpha=0.5,
+           s = 5,
+           velocity=False,
+           gene=gene_list[i])
+
+       ax.set_title(gene_list[i])
+       ax.axis('on')
+
+   plt.show()
 

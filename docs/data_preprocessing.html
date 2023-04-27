@@ -36,7 +36,6 @@
         <script src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_static/underscore.js"></script>
         <script src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="https://raw.githack.com/GuangyuWangLab2021/cellDancer_website/main/docs/_static/js/theme.js"></script>
 
@@ -226,7 +225,7 @@
 <span class="n">scv</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">filter_genes_dispersion</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">n_top_genes</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
 <span class="n">scv</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span>
 <span class="n">scv</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">filter_and_normalize</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">min_shared_counts</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n_top_genes</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
-<span class="n">scv</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">moments</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">n_pcs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">scv</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">moments</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">n_pcs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> <span class="c1"># cell amount will influence the setting of n_neighbors</span>
 </pre></div>
 </div>
 <p>Now we get the ‘Mu’ and ‘Ms’ in ‘layers’ of adata. ‘Mu’ and ‘Ms’ will be used in our prediction of RNA velocity.</p>
@@ -255,6 +254,37 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">splice</span></code> and <code class="docutils literal notranslate"><span class="pre">unsplice</span></code> columns are obtained from the <code class="docutils literal notranslate"><span class="pre">['Ms',</span> <span class="pre">'Mu']</span></code> attributes of <code class="docutils literal notranslate"><span class="pre">adata.layers</span></code>. Also, <code class="docutils literal notranslate"><span class="pre">cellID</span></code> column is obtained from <code class="docutils literal notranslate"><span class="pre">adata.obs.index</span></code>. <code class="docutils literal notranslate"><span class="pre">clusters</span></code> column is obtained from <code class="docutils literal notranslate"><span class="pre">['celltype']</span></code> of <code class="docutils literal notranslate"><span class="pre">adata.obs</span></code>. The <code class="docutils literal notranslate"><span class="pre">embedding1</span></code> and <code class="docutils literal notranslate"><span class="pre">embedding2</span></code> columns are obtained from <code class="docutils literal notranslate"><span class="pre">['X_umap']</span></code> attribute of <code class="docutils literal notranslate"><span class="pre">adata.obsm</span></code>.</p>
+<p>You may also want to visualize genes of interest or have an overview of multiple genes before the prediction using the scripts shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">celldancer.cdplt</span> <span class="k">as</span> <span class="nn">cdplt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">gene_list</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">cellDancer_df</span><span class="o">.</span><span class="n">gene_name</span><span class="p">))[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="c1"># or specify gene(s) of interest</span>
+
+<span class="n">ncols</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">height</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gene_list</span><span class="p">)</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">height</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gene_list</span><span class="p">)):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gene_list</span><span class="p">)</span><span class="o">/</span><span class="n">ncols</span><span class="p">),</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">cdplt</span><span class="o">.</span><span class="n">scatter_gene</span><span class="p">(</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+        <span class="n">x</span><span class="o">=</span><span class="s1">&#39;splice&#39;</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="s1">&#39;unsplice&#39;</span><span class="p">,</span>
+        <span class="n">cellDancer_df</span><span class="o">=</span><span class="n">cellDancer_df</span><span class="p">,</span>
+        <span class="n">custom_xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">custom_ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="n">velocity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">gene</span><span class="o">=</span><span class="n">gene_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">gene_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 </div>
 </div>
 
