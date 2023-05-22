@@ -1,0 +1,68 @@
+Frequently asked questions
+===========================================================================================
+
+Below are the frequently asked questions we've received. If you have any other question related to your specific contition, welcome to post it in our `github issue page <https://github.com/GuangyuWangLab2021/cellDancer/issues>`_ or email to sli5@houstonmethodist.org.
+
+Questions of transferring adata format to dataframe.
+------------------------------------------------------------------------------------
+`Data Preprocessing <https://guangyuwanglab2021.github.io/cellDancer_website/data_preprocessing.html>`_ contains the introduction for analyzing with you own data.
+
+**Q1**: When transferring adata format to dataframe, how to get all the genes in the adata?
+
+**A1**:Not inputting the gene_list will let cdutil.cdadata_to_df_with_embed function get all genes by default. Details could be found in our `Github issue page <https://github.com/GuangyuWangLab2021/cellDancer/issues/4>`_.
+
+
+**Q2**: How can we know which gene to use? Where are these genes in case studies come from? Do we need to search for the branching gene first?
+
+**A2**: In most cases, all high variable genes could be used as mentioned in `Data Preprocessing <https://guangyuwanglab2021.github.io/cellDancer_website/data_preprocessing.html>`_ with ``scv.pp.filter_and_normalize(adata,min_shared_counts=20,n_top_genes=2000)``. We manually searched the branching genes and combined them with the reported branching gene list. If you want to study branching genes, you may also manually search for branching genes.
+
+**Q3**: When using the adata_to_df_with_embed, I got an error: ValueError: If using all scalar values, you must pass an index. Below is how my adata looks like
+::
+
+   AnnData object with n_obs × n_vars = 23496 × 18964
+       obs: 'orig.ident', 'nCount_RNA', 'nFeature_RNA', 'donor_id', 'prob_max', 'prob_doublet', 'n_vars', 'best_singlet', 'doublet_logLikRatio', 'nCount_SCT', 'nFeature_SCT', 'pANN', 'gender', 'location', 'donors', 'SCT_snn_res.0.5', 'seurat_clusters', 'S.Score', 'G2M.Score', 'Phase', 'old.ident', 'RNA_snn_res.0.4', 'cell_types', 'batch', 'initial_size_unspliced', 'initial_size_spliced', 'initial_size'
+       var: 'name', 'Accession', 'Chromosome', 'End', 'Start', 'Strand'
+       uns: 'cell_types_colors'
+       obsm: 'X_harmony', 'X_pca', 'X_umap'
+       layers: 'ambiguous', 'matrix', 'spliced', 'unspliced'
+
+**A3**: Seems like you don't have 'Mu' and 'Ms' in ' layers' of adata. The codes below will help you to get the 'Mu' and 'Ms' in your 'layers' of adata.
+::
+
+   # !pip install scvelo --upgrade --quiet
+   import scvelo as scv
+   scv.pp.filter_and_normalize(adata, min_shared_counts=20, n_top_genes=2000)
+   scv.pp.moments(adata, n_pcs=30, n_neighbors=30) # cell amount will influence the setting of n_neighbors
+
+Details could be found in our `Github issue page <https://github.com/GuangyuWangLab2021/cellDancer/issues/4>`_.
+
+Errors met when following the case study on own data.
+------------------------------------------------------------------------------------
+**Q1**. I am using my own data, why my prediction result is showing the arrow and cell type symbol only when using 'cdplt.scatter_gene' and 'cdplt.scatter_cell'. Also, where does colormap.colormap_neuro come from?
+
+**A1**: Your prediction result is only showing the arrow and cell type symbol only, this is because you may need to build your own colormap. colormap.colormap_neuro is the internal customized colormap dictionary we used in celldancer for our specific color set. If you want to color your own celltype, there are two ways to obtain the color map.
+ 
+1) Build colormap using the default color style of cellDancer.
+::
+   import celldancer as cd
+   Import celldancer.cdplt as cdplt
+   Import pandas as pd
+   cell_type_u_s=pd.read_csv('./cell_type_u_s.csv') # transferred pandas DataFrame from adata
+   lst_of_celltype=list(cell_type_u_s.clusters.drop_duplicates())
+   colormap1=cd.plotting.colormap.build_colormap(lst_of_celltype)
+
+Then, you can set ``colors=colormap1`` when using ``cdplt.scatter_gene()`` and ``cdplt.scatter_cell()`` functions.
+ 
+2) Customize own color style.
+::
+   import celldancer.cdplt as cdplt
+   colormap2=dict()
+   colormap2['celltype1']='#3B9AB2' # the Hex code of color 
+   colormap2['celltype2']='#710162'
+   …# manually set the color for each celltype
+ 
+Then, you can set ``colors=colormap2`` when using ``cdplt.scatter_gene()`` and ``cdplt.scatter_cell()`` functions.
+ 
+**Q2**: I was wondering if there was a way to cap the memory usage?
+
+**A2**: You can start with ``n_jobs=1`` in ``cd.velocity `` to see if it works or not. Details could be found in our `Github issue page <https://github.com/GuangyuWangLab2021/cellDancer/issues/7>`_.

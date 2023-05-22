@@ -17,3 +17,4 @@ index.html
 release_notes.html
 search.html
 API.html
+FAQ.html
